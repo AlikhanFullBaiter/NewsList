@@ -20,7 +20,7 @@ const NewsList = () => {
 
   return (
     <div className="container">
-      <h1>News List</h1>
+      <h1>News</h1>
       <button className="refresh-button" onClick={handleRefresh} disabled={loading}>
         {loading ? 'Refreshing...' : 'Refresh News'}
       </button>
@@ -30,7 +30,10 @@ const NewsList = () => {
           <li key={newsItem.id} className="news-item">
             <Link className="news-title" to={`/news/${newsItem.id}`}>{newsItem.title}</Link>
             <p className="description">{newsItem.description}</p>
-            <p className="author">{newsItem.by} - {new Date(newsItem.time * 1000).toLocaleString()}</p>
+            <div className='author-date-container'>
+                <p className="author">{newsItem.by}</p>
+                <p className="date">{new Date(newsItem.time * 1000).toLocaleString()}</p>
+            </div>
           </li>
         ))}
       </ul>

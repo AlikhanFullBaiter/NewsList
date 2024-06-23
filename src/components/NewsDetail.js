@@ -23,7 +23,7 @@ const NewsDetail = () => {
       dispatch(fetchComments(newsId));
       const savedComments = JSON.parse(localStorage.getItem(`comments-${newsId}`)) || [];
       dispatch(setComments({ newsId, comments: savedComments }));
-      console.log('Loaded comments from localStorage:', savedComments);
+      
     }
   }, [dispatch, newsItem, newsId]);
 
@@ -33,7 +33,7 @@ const NewsDetail = () => {
       dispatch(addComment({ newsId, comment: newComment }));
       const updatedComments = [...comments, newComment];
       localStorage.setItem(`comments-${newsId}`, JSON.stringify(updatedComments));
-      console.log('Added comment:', newComment);
+      
       setCommentText('');
     }
   };
@@ -42,7 +42,7 @@ const NewsDetail = () => {
     dispatch(deleteComment({ newsId, commentId }));
     const updatedComments = comments.filter(comment => comment.id !== commentId);
     localStorage.setItem(`comments-${newsId}`, JSON.stringify(updatedComments));
-    console.log('Deleted comment ID:', commentId);
+    
   };
 
   const handleEdit = (commentId, text) => {
@@ -56,7 +56,7 @@ const NewsDetail = () => {
       comment.id === commentId ? { ...comment, text: editCommentText } : comment
     );
     localStorage.setItem(`comments-${newsId}`, JSON.stringify(updatedComments));
-    console.log('Edited comment ID:', commentId, 'with text:', editCommentText);
+    
     setEditCommentId(null);
     setEditCommentText('');
   };

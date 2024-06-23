@@ -76,7 +76,19 @@ h1 {
 }
 
 .author {
-  font-size: 14px;
-  /* color: #666; */
+  color:#3c9ff0;
+  font-size: 17px;
   font-weight: bold;
+}
+
+
+.date {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.author-date-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }

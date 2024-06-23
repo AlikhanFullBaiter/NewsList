@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-// Асинхронный экшен для загрузки новостей
+
 export const fetchNews = createAsyncThunk('news/fetchNews', async () => {
   const response = await axios.get('https://hacker-news.firebaseio.com/v0/askstories.json?print=pretty');
   const topStoryIds = response.data.slice(0, 10);
@@ -22,7 +22,7 @@ export const fetchNews = createAsyncThunk('news/fetchNews', async () => {
   return newsResponses;
 });
 
-// Асинхронный экшен для загрузки комментариев
+
 export const fetchComments = createAsyncThunk('news/fetchComments', async (newsId) => {
   const response = await axios.get(`https://hacker-news.firebaseio.com/v0/item/${newsId}.json?print=pretty`);
   const newsItem = response.data;
@@ -48,7 +48,7 @@ const newsSlice = createSlice({
     comments: {},
     loading: false,
     error: null,
-    currentUser: { name: 'You' } // Пример текущего пользователя
+    currentUser: { name: 'You' } 
   },
   reducers: {
     setNews(state, action) {
@@ -57,19 +57,19 @@ const newsSlice = createSlice({
     addComment(state, action) {
       const { newsId, comment } = action.payload;
       state.comments[newsId] = [...(state.comments[newsId] || []), { id: Date.now(), ...comment }];
-      localStorage.setItem(`comments-${newsId}`, JSON.stringify(state.comments[newsId])); // Сохраняем комментарии в локальное хранилище
+      localStorage.setItem(`comments-${newsId}`, JSON.stringify(state.comments[newsId])); 
     },
     deleteComment(state, action) {
       const { newsId, commentId } = action.payload;
       state.comments[newsId] = state.comments[newsId].filter(comment => comment.id !== commentId);
-      localStorage.setItem(`comments-${newsId}`, JSON.stringify(state.comments[newsId])); // Обновляем локальное хранилище
+      localStorage.setItem(`comments-${newsId}`, JSON.stringify(state.comments[newsId])); 
     },
     editComment(state, action) {
       const { newsId, commentId, text } = action.payload;
       state.comments[newsId] = state.comments[newsId].map(comment =>
         comment.id === commentId ? { ...comment, text } : comment
       );
-      localStorage.setItem(`comments-${newsId}`, JSON.stringify(state.comments[newsId])); // Обновляем локальное хранилище
+      localStorage.setItem(`comments-${newsId}`, JSON.stringify(state.comments[newsId])); 
     },
     setComments(state, action) {
       const { newsId, comments } = action.payload;

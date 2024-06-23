@@ -44,21 +44,21 @@ h1 {
   border-radius: 5px;
   padding: 10px;
   margin-bottom: 10px;
-  background-color: #f1f1f1; /* Add background color for comments */
+  background-color: #ecf9fd; 
 }
 
 .comment-text {
   margin-bottom: 5px;
-  word-wrap: break-word; /* Ensure long words break and wrap onto the next line */
-  white-space: pre-wrap; /* Preserve whitespace and ensure text wraps properly */
+  word-wrap: break-word; 
+  white-space: pre-wrap; 
 }
 
 .comment-author {
   font-weight: bold;
   margin-bottom: 5px;
   position: relative;
-  top: -10px; /* Move 'You' label slightly higher */
-  background-color: #d1ecf1; /* Background color for 'You' label */
+  top: -10px; 
+  background-color: #c8f7cf; 
   padding: 2px 5px;
   border-radius: 3px;
 }
