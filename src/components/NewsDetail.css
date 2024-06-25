@@ -103,6 +103,12 @@ h1 {
   background-color: #0056b3;
 }
 
+.edit-comment-container {
+  display: flex;
+  justify-content: space-between;
+  align-items:center;
+}
+
 textarea {
   width: 100%;
   height: 100px;

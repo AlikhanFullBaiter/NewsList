@@ -83,7 +83,7 @@ const NewsDetail = () => {
         {comments.map((comment) => (
           <li key={comment.id} className="comment-item">
             {editCommentId === comment.id ? (
-              <>
+              <div className='edit-comment-container'>
                 <input
                   className="edit-comment-input"
                   type="text"
@@ -91,11 +91,11 @@ const NewsDetail = () => {
                   onChange={(e) => setEditCommentText(e.target.value)}
                 />
                 <button className="edit-comment-button" onClick={() => handleEditComment(comment.id)}>Save</button>
-              </>
+              </div>
             ) : (
               <>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                  <p className="comment-author">{comment.by === currentUser?.name ? 'You' : comment.by || "Anonymous"}</p>
+                  <p className="comment-author">{comment.by === currentUser?.name ? 'You' : comment.by }</p>
                 </div>
                 <p className="comment-text">{stripHtml(comment.text)}</p>
                 {currentUser && comment.by === currentUser.name && (
