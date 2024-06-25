@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams, Link } from 'react-router-dom';
 import { fetchNews, fetchComments, addComment, deleteComment, editComment, setComments } from '../redux/newsSlice';
 import './NewsDetail.css';
+
 import { v4 as uuidv4 } from 'uuid';
 
 const NewsDetail = () => {
@@ -73,6 +74,7 @@ const NewsDetail = () => {
   console.log(store.getState());
 
   return (
+    
     <div className="container">
       <h1>{newsItem.title}</h1>
       <p className="description">{newsItem.description}</p>

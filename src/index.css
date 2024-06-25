@@ -1,20 +1,8 @@
 body {
   font-family: Arial, sans-serif;
-}
-
-h1 {
-  color: #333;
-}
-
-ul {
-  list-style: none;
+  margin: 0;
   padding: 0;
-}
-
-li {
-  margin: 10px 0;
-  padding: 10px;
-  border: 1px solid #ddd;
+  box-sizing:border-box;
 }
 
 button {
@@ -26,6 +14,4 @@ button {
   cursor: pointer;
 }
 
-button:hover {
-  background-color: #0056b3;
-}
+
